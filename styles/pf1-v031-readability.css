@@ -1,0 +1,268 @@
+/* ========================================================================== */
+/* v0.3.1 - Readability pass: larger body text, clearer rows, no tiny labels  */
+/* ========================================================================== */
+
+/* Global readability */
+.D35E.d35e-pf1 form.pf1-sheet {
+  font-size: 14.5px !important;
+  line-height: 1.25;
+}
+
+.D35E.d35e-pf1 .pf1-sheet input,
+.D35E.d35e-pf1 .pf1-sheet select,
+.D35E.d35e-pf1 .pf1-sheet textarea,
+.D35E.d35e-pf1 .pf1-sheet button {
+  font-size: 13.5px !important;
+}
+
+.D35E.d35e-pf1 .pf1-muted,
+.D35E.d35e-pf1 .item-detail,
+.D35E.d35e-pf1 .item-controls,
+.D35E.d35e-pf1 .inventory-header .item-detail,
+.D35E.d35e-pf1 .inventory-header .item-controls {
+  font-size: 12.5px !important;
+}
+
+/* Primary tabs: keep the PF1 proportions, just make them easier to read */
+.D35E.d35e-pf1 .pf1-primary-tabs.sheet-navigation {
+  flex-basis: 35px !important;
+  min-height: 35px !important;
+}
+.D35E.d35e-pf1 .pf1-primary-tabs > .item {
+  height: 31px !important;
+  padding: 5px 10px 4px !important;
+  font-size: 16.5px !important;
+  line-height: 20px !important;
+}
+
+/* Search/filter */
+.D35E.d35e-pf1 .pf1-filter-row {
+  min-height: 34px !important;
+}
+.D35E.d35e-pf1 .pf1-search-filter {
+  width: 170px !important;
+  height: 27px !important;
+  font-size: 13.5px !important;
+}
+
+/* Secondary tabs - especially Features and Spellbook */
+.D35E.d35e-pf1 .pf1-native-attacks .sheet-navigation.subtabs,
+.D35E.d35e-pf1 .pf1-native-features .sheet-navigation.subtabs,
+.D35E.d35e-pf1 .pf1-native-buffs .sheet-navigation.subtabs,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.subtabs,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.spellbooks {
+  min-height: 32px !important;
+  flex-basis: 32px !important;
+}
+.D35E.d35e-pf1 .pf1-native-attacks .sheet-navigation.subtabs .item,
+.D35E.d35e-pf1 .pf1-native-features .sheet-navigation.subtabs .item,
+.D35E.d35e-pf1 .pf1-native-buffs .sheet-navigation.subtabs .item,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.subtabs .item,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.spellbooks .item {
+  min-width: 0 !important;
+  padding: 6px 8px 4px !important;
+  font-size: 13.5px !important;
+  line-height: 18px !important;
+}
+
+/* Features: fit all categories without the tiny horizontal scrollbar */
+.D35E.d35e-pf1 .pf1-native-features .sheet-navigation.subtabs {
+  overflow-x: hidden !important;
+  gap: 2px !important;
+}
+.D35E.d35e-pf1 .pf1-native-features .sheet-navigation.subtabs .item {
+  flex: 1 1 auto !important;
+  white-space: nowrap;
+}
+
+/* Inventory / Features / Buffs / Combat lists */
+.D35E.d35e-pf1 .pf1-native-inventory .inventory-header,
+.D35E.d35e-pf1 .pf1-native-features .inventory-header,
+.D35E.d35e-pf1 .pf1-native-buffs .inventory-header,
+.D35E.d35e-pf1 .pf1-native-attacks .inventory-header,
+.D35E.d35e-pf1 .pf1-native-spellbook .inventory-header,
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-header {
+  min-height: 34px !important;
+  font-size: 13.5px !important;
+}
+
+.D35E.d35e-pf1 .pf1-native-inventory .inventory-header h3,
+.D35E.d35e-pf1 .pf1-native-features .inventory-header h3,
+.D35E.d35e-pf1 .pf1-native-buffs .inventory-header h3,
+.D35E.d35e-pf1 .pf1-native-attacks .inventory-header h3,
+.D35E.d35e-pf1 .pf1-native-spellbook .inventory-header h3,
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-header h3 {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+.D35E.d35e-pf1 .pf1-native-inventory .item-list > .item,
+.D35E.d35e-pf1 .pf1-native-features .item-list > .item,
+.D35E.d35e-pf1 .pf1-native-buffs .item-list > .item,
+.D35E.d35e-pf1 .pf1-native-attacks .item-list > .item,
+.D35E.d35e-pf1 .pf1-native-spellbook .item-list > .item {
+  min-height: 33px !important;
+  font-size: 14px !important;
+}
+
+.D35E.d35e-pf1 .pf1-native-inventory .item-name,
+.D35E.d35e-pf1 .pf1-native-features .item-name,
+.D35E.d35e-pf1 .pf1-native-buffs .item-name,
+.D35E.d35e-pf1 .pf1-native-attacks .item-name,
+.D35E.d35e-pf1 .pf1-native-spellbook .item-name {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+/* Currency and carrying capacity */
+.D35E.d35e-pf1 .pf1-native-inventory .currency,
+.D35E.d35e-pf1 .pf1-native-inventory .carry-label,
+.D35E.d35e-pf1 .pf1-native-inventory .encumbrance {
+  font-size: 13.5px !important;
+}
+.D35E.d35e-pf1 .pf1-native-inventory .currency {
+  min-height: 34px !important;
+}
+
+/* Skills */
+.D35E.d35e-pf1 .pf1-native-skills,
+.D35E.d35e-pf1 .pf1-native-skills .skills-list,
+.D35E.d35e-pf1 .pf1-native-skills .skill-list {
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-native-skills .skill {
+  min-height: 31px !important;
+  line-height: 28px !important;
+}
+.D35E.d35e-pf1 .pf1-native-skills .skill-name,
+.D35E.d35e-pf1 .pf1-native-skills .skill-roll {
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-native-skills input,
+.D35E.d35e-pf1 .pf1-native-skills select,
+.D35E.d35e-pf1 .pf1-native-skills button,
+.D35E.d35e-pf1 .pf1-native-skills .skill-rank,
+.D35E.d35e-pf1 .pf1-native-skills .skill-mod,
+.D35E.d35e-pf1 .pf1-native-skills .skill-ability,
+.D35E.d35e-pf1 .pf1-native-skills .skill-control {
+  min-height: 25px !important;
+  font-size: 12.5px !important;
+}
+.D35E.d35e-pf1 .pf1-native-skills .skill-summary,
+.D35E.d35e-pf1 .pf1-native-skills .skill-header,
+.D35E.d35e-pf1 .pf1-native-skills .skills-header {
+  min-height: 34px !important;
+  font-size: 14px !important;
+}
+
+/* Attributes */
+.D35E.d35e-pf1 .pf1-ability-table-head,
+.D35E.d35e-pf1 .pf1-ability-table-row {
+  min-height: 34px !important;
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-ability-table-head {
+  min-height: 31px !important;
+}
+.D35E.d35e-pf1 .pf1-ability-table-row input {
+  height: 28px !important;
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-point-buy {
+  flex-basis: 44px !important;
+  font-size: 15px !important;
+}
+.D35E.d35e-pf1 .pf1-derived-attributes > div {
+  grid-template-rows: 26px 31px !important;
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-traits-table .form-group {
+  min-height: 32px !important;
+  font-size: 13.5px !important;
+}
+.D35E.d35e-pf1 .pf1-traits-table .tag {
+  font-size: 12.5px !important;
+}
+
+/* Combat */
+.D35E.d35e-pf1 .pf1-combat-top > div {
+  grid-template-rows: 28px 33px !important;
+}
+.D35E.d35e-pf1 .pf1-combat-top .attribute-name,
+.D35E.d35e-pf1 .pf1-combat-top strong {
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-combat-defense-title {
+  font-size: 15px !important;
+}
+.D35E.d35e-pf1 .pf1-combat-defense-grid > div {
+  grid-template-rows: 26px 32px !important;
+}
+.D35E.d35e-pf1 .pf1-combat-defense-grid span,
+.D35E.d35e-pf1 .pf1-combat-defense-grid a,
+.D35E.d35e-pf1 .pf1-combat-defense-grid strong {
+  font-size: 13.5px !important;
+}
+
+/* Spellbook */
+.D35E.d35e-pf1 .pf1-native-spellbook {
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-group,
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-list,
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-header,
+.D35E.d35e-pf1 .pf1-native-spellbook .spell-level {
+  font-size: 13.5px !important;
+}
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-header,
+.D35E.d35e-pf1 .pf1-native-spellbook .spell-level {
+  min-height: 34px !important;
+}
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-meta,
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-summary,
+.D35E.d35e-pf1 .pf1-native-spellbook .spell-range {
+  font-size: 13.5px !important;
+}
+
+/* Buffs / conditions */
+.D35E.d35e-pf1 .pf1-native-buffs .condition,
+.D35E.d35e-pf1 .pf1-native-buffs .condition-label,
+.D35E.d35e-pf1 .pf1-native-buffs label {
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-native-buffs .condition {
+  min-height: 28px !important;
+}
+
+/* Summary small text */
+.D35E.d35e-pf1 .pf1-ability-mini .ability-name,
+.D35E.d35e-pf1 .pf1-ability-mini strong {
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-ability-mini span,
+.D35E.d35e-pf1 .pf1-table-grid label,
+.D35E.d35e-pf1 .pf1-npc-meta span {
+  font-size: 12px !important;
+}
+.D35E.d35e-pf1 .pf1-defense-grid span,
+.D35E.d35e-pf1 .pf1-combat-strip span,
+.D35E.d35e-pf1 .pf1-quick-skill,
+.D35E.d35e-pf1 .pf1-class-row,
+.D35E.d35e-pf1 .pf1-action-row {
+  font-size: 13.5px !important;
+}
+
+/* Prevent cramped text at smaller sheet widths */
+@media (max-width: 940px) {
+  .D35E.d35e-pf1 form.pf1-sheet { font-size: 14px !important; }
+  .D35E.d35e-pf1 .pf1-primary-tabs > .item {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+    font-size: 15.5px !important;
+  }
+  .D35E.d35e-pf1 .pf1-native-features .sheet-navigation.subtabs .item {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    font-size: 12.5px !important;
+  }
+}
