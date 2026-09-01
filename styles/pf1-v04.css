@@ -1,0 +1,309 @@
+/* v0.4.0 - PF1 visual parity pass. Independent styling for D35E data/templates. */
+.D35E.d35e-pf1 {
+  --pf1-v04-paper: #efeee6;
+  --pf1-v04-paper-alt: #e7e6de;
+  --pf1-v04-ink: #353630;
+  --pf1-v04-muted: #696a64;
+  --pf1-v04-line: #8d8e87;
+  --pf1-v04-head: #60625d;
+  --pf1-v04-head2: #52544f;
+  --pf1-v04-accent: #ef4c36;
+  --pf1-v04-blue: #0f6e98;
+}
+
+.D35E.d35e-pf1 .window-content {
+  background: var(--pf1-v04-paper) !important;
+}
+
+.D35E.d35e-pf1 form.pf1-sheet {
+  font-family: "Signika", Arial, sans-serif !important;
+  font-size: 14px !important;
+  color: var(--pf1-v04-ink) !important;
+  padding: 7px 10px 9px !important;
+}
+
+/* main PF1 tabs */
+.D35E.d35e-pf1 .pf1-primary-tabs.sheet-navigation {
+  min-height: 38px !important;
+  flex-basis: 38px !important;
+  padding: 0 5px 2px !important;
+  gap: 3px !important;
+  border-bottom: 1px solid #92938d !important;
+  overflow: visible !important;
+}
+.D35E.d35e-pf1 .pf1-primary-tabs > .item {
+  height: 34px !important;
+  padding: 7px 13px 5px !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  font-weight: 600 !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+.D35E.d35e-pf1 .pf1-primary-tabs > .item.active {
+  border: 2px solid var(--pf1-v04-accent) !important;
+  border-bottom-color: transparent !important;
+  background: var(--pf1-v04-paper) !important;
+}
+
+/* filter row */
+.D35E.d35e-pf1 .pf1-filter-row {
+  min-height: 36px !important;
+  margin: 0 0 6px !important;
+  padding: 3px 5px !important;
+}
+.D35E.d35e-pf1 .pf1-search-filter,
+.D35E.d35e-pf1 input.item-search-input {
+  width: 180px !important;
+  height: 27px !important;
+  font-size: 13px !important;
+}
+
+/* secondary tab bars */
+.D35E.d35e-pf1 .pf1-native-attacks .sheet-navigation.subtabs,
+.D35E.d35e-pf1 .pf1-native-features .sheet-navigation.subtabs,
+.D35E.d35e-pf1 .pf1-native-buffs .sheet-navigation.subtabs,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.subtabs,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.spellbooks {
+  display: grid !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: minmax(max-content, 1fr) !important;
+  align-items: end !important;
+  min-height: 38px !important;
+  flex-basis: 38px !important;
+  gap: 0 !important;
+  padding: 0 5px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  border-bottom: 1px solid #a0a19a !important;
+}
+.D35E.d35e-pf1 .pf1-native-attacks .sheet-navigation.subtabs .item,
+.D35E.d35e-pf1 .pf1-native-features .sheet-navigation.subtabs .item,
+.D35E.d35e-pf1 .pf1-native-buffs .sheet-navigation.subtabs .item,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.subtabs .item,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.spellbooks .item {
+  min-width: 0 !important;
+  height: 34px !important;
+  padding: 8px 10px 5px !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+  white-space: nowrap !important;
+}
+.D35E.d35e-pf1 .pf1-native-attacks .sheet-navigation.subtabs .item.active,
+.D35E.d35e-pf1 .pf1-native-features .sheet-navigation.subtabs .item.active,
+.D35E.d35e-pf1 .pf1-native-buffs .sheet-navigation.subtabs .item.active,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.subtabs .item.active,
+.D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.spellbooks .item.active {
+  border-bottom: 4px solid #76504a !important;
+  color: #3d302e !important;
+  font-weight: 700 !important;
+}
+
+/* shared list headers/rows */
+.D35E.d35e-pf1 .pf1-native-inventory .inventory-header,
+.D35E.d35e-pf1 .pf1-native-features .inventory-header,
+.D35E.d35e-pf1 .pf1-native-buffs .inventory-header,
+.D35E.d35e-pf1 .pf1-native-attacks .inventory-header,
+.D35E.d35e-pf1 .pf1-native-spellbook .inventory-header,
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-header {
+  min-height: 34px !important;
+  height: auto !important;
+  padding: 6px 9px !important;
+  background: linear-gradient(#696b66, #575954) !important;
+  color: #fff !important;
+  border: 1px solid #70716b !important;
+  font-size: 13px !important;
+}
+.D35E.d35e-pf1 .pf1-native-inventory .inventory-header h3,
+.D35E.d35e-pf1 .pf1-native-features .inventory-header h3,
+.D35E.d35e-pf1 .pf1-native-buffs .inventory-header h3,
+.D35E.d35e-pf1 .pf1-native-attacks .inventory-header h3,
+.D35E.d35e-pf1 .pf1-native-spellbook .inventory-header h3 {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+.D35E.d35e-pf1 .item-list > .item,
+.D35E.d35e-pf1 .inventory-list > .item,
+.D35E.d35e-pf1 .inventory-sublist > .item {
+  min-height: 34px !important;
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .item-list > .item .item-name,
+.D35E.d35e-pf1 .inventory-list > .item .item-name {
+  font-size: 14px !important;
+  line-height: 30px !important;
+}
+.D35E.d35e-pf1 .item-list > .item .item-image,
+.D35E.d35e-pf1 .inventory-list > .item .item-image {
+  width: 30px !important;
+  height: 30px !important;
+  flex-basis: 30px !important;
+  background-size: cover !important;
+}
+.D35E.d35e-pf1 .item-controls,
+.D35E.d35e-pf1 .item-detail,
+.D35E.d35e-pf1 .item-quantity,
+.D35E.d35e-pf1 .item-weight,
+.D35E.d35e-pf1 .item-charges {
+  font-size: 12.5px !important;
+}
+
+/* inventory */
+.D35E.d35e-pf1 .pf1-native-inventory .currency {
+  min-height: 36px !important;
+  padding: 5px 8px !important;
+  font-size: 13.5px !important;
+}
+.D35E.d35e-pf1 .pf1-native-inventory .inventory-header {
+  background: linear-gradient(90deg, #e8d9b8, #efe6cf) !important;
+  color: #4f514b !important;
+  text-shadow: none !important;
+}
+.D35E.d35e-pf1 .pf1-native-inventory .inventory-header h3 { color: #4b4c47 !important; }
+.D35E.d35e-pf1 .pf1-native-inventory .inventory-header a { color: #1b6777 !important; }
+.D35E.d35e-pf1 .pf1-native-inventory .encumbrance,
+.D35E.d35e-pf1 .pf1-native-inventory .inventory-footer,
+.D35E.d35e-pf1 .pf1-native-inventory .carry-label {
+  font-size: 13.5px !important;
+}
+
+/* features */
+.D35E.d35e-pf1 .pf1-native-features .item-list > .item {
+  min-height: 38px !important;
+}
+.D35E.d35e-pf1 .pf1-native-features .item-list > .item .item-name {
+  font-size: 14.5px !important;
+}
+
+/* skills */
+.D35E.d35e-pf1 .pf1-skills-page {
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-skills-page .skills-list,
+.D35E.d35e-pf1 .pf1-skills-page .skill-list {
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-skills-page .skill,
+.D35E.d35e-pf1 .pf1-skills-page .skill-row {
+  min-height: 31px !important;
+  height: auto !important;
+  line-height: 28px !important;
+}
+.D35E.d35e-pf1 .pf1-skills-page .skill-name,
+.D35E.d35e-pf1 .pf1-skills-page .skill-name a {
+  font-size: 14px !important;
+  line-height: 28px !important;
+}
+.D35E.d35e-pf1 .pf1-skills-page input,
+.D35E.d35e-pf1 .pf1-skills-page select {
+  min-height: 27px !important;
+  font-size: 13px !important;
+}
+.D35E.d35e-pf1 .pf1-skills-page .skill-rank,
+.D35E.d35e-pf1 .pf1-skills-page .skill-mod,
+.D35E.d35e-pf1 .pf1-skills-page .skill-total {
+  font-size: 13.5px !important;
+}
+.D35E.d35e-pf1 .pf1-skills-page .skills-header,
+.D35E.d35e-pf1 .pf1-skills-page .attributes {
+  min-height: 48px !important;
+  font-size: 14px !important;
+}
+
+/* spells */
+.D35E.d35e-pf1 .pf1-native-spellbook {
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-header,
+.D35E.d35e-pf1 .pf1-native-spellbook .inventory-header {
+  min-height: 35px !important;
+}
+.D35E.d35e-pf1 .pf1-native-spellbook .item-list > .item {
+  min-height: 34px !important;
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-title,
+.D35E.d35e-pf1 .pf1-native-spellbook h2,
+.D35E.d35e-pf1 .pf1-native-spellbook h3 {
+  font-size: 17px !important;
+}
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook .attributes,
+.D35E.d35e-pf1 .pf1-native-spellbook .spellbook-summary {
+  font-size: 14px !important;
+}
+
+/* Attributes */
+.D35E.d35e-pf1 .pf1-ability-table-head,
+.D35E.d35e-pf1 .pf1-ability-table-row {
+  min-height: 34px !important;
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-ability-table-row input {
+  height: 29px !important;
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-point-buy {
+  min-height: 43px !important;
+  font-size: 15px !important;
+}
+.D35E.d35e-pf1 .pf1-derived-attributes > div {
+  grid-template-rows: 26px 31px !important;
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-traits-table .form-group {
+  min-height: 33px !important;
+  font-size: 13.5px !important;
+}
+
+/* Combat */
+.D35E.d35e-pf1 .pf1-combat-top > div {
+  grid-template-rows: 28px 32px !important;
+  font-size: 14px !important;
+}
+.D35E.d35e-pf1 .pf1-combat-defense-grid > div {
+  grid-template-rows: 27px 33px !important;
+  font-size: 14px !important;
+}
+
+/* Summary */
+.D35E.d35e-pf1 .pf1-ability-mini { font-size: 14px !important; }
+.D35E.d35e-pf1 .pf1-ability-mini strong { font-size: 16px !important; }
+.D35E.d35e-pf1 .pf1-table-title,
+.D35E.d35e-pf1 .pf1-quick-heading { font-size: 16px !important; min-height: 31px !important; }
+.D35E.d35e-pf1 .pf1-table-grid label { font-size: 12.5px !important; min-height: 54px !important; }
+.D35E.d35e-pf1 .pf1-defense-grid,
+.D35E.d35e-pf1 .pf1-combat-strip { font-size: 14px !important; }
+.D35E.d35e-pf1 .pf1-defense-grid strong,
+.D35E.d35e-pf1 .pf1-combat-strip strong { font-size: 15px !important; }
+
+/* buttons */
+.D35E.d35e-pf1 button,
+.D35E.d35e-pf1 .blue-button,
+.D35E.d35e-pf1 a.blue-button {
+  min-height: 30px !important;
+  padding: 4px 10px !important;
+  font-size: 14px !important;
+  background: linear-gradient(#1b86b7, #09678f) !important;
+  border: 1px solid #174c61 !important;
+  color: white !important;
+}
+
+/* keep scrollbars readable but subtle */
+.D35E.d35e-pf1 ::-webkit-scrollbar { width: 9px; height: 9px; }
+.D35E.d35e-pf1 ::-webkit-scrollbar-thumb { background: #8d8e87; border-radius: 5px; }
+
+@media (max-width: 900px) {
+  .D35E.d35e-pf1 .pf1-primary-tabs > .item {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+    font-size: 15px !important;
+  }
+  .D35E.d35e-pf1 .pf1-native-attacks .sheet-navigation.subtabs .item,
+  .D35E.d35e-pf1 .pf1-native-features .sheet-navigation.subtabs .item,
+  .D35E.d35e-pf1 .pf1-native-buffs .sheet-navigation.subtabs .item,
+  .D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.subtabs .item,
+  .D35E.d35e-pf1 .pf1-native-spellbook .sheet-navigation.spellbooks .item {
+    font-size: 12.5px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+}
