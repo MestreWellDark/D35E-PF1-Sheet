@@ -1,6 +1,12 @@
 {
-  "D35EPF1.CharacterSheet": "D35E - Ficha Estilo PF1",
-  "D35EPF1.NPCSheet": "D35E - NPC Estilo PF1",
-  "D35EPF1.MonsterSheet": "D35E - Monstro Estilo PF1",
-  "D35EPF1.Ready": "Ficha D35E Estilo PF1 pronta"
+  "D35EPF1.CharacterSheet": "Ficha D35E em estilo PF1",
+  "D35EPF1.NPCSheet": "Ficha de NPC D35E em estilo PF1",
+  "D35EPF1.MonsterSheet": "Ficha de Monstro D35E em estilo PF1",
+  "D35EPF1.Ready": "Fichas D35E em estilo PF1 prontas",
+  "D35EPF1.CMD": "DMC",
+  "D35EPF1.Current": "Atual",
+  "D35EPF1.Maximum": "Máximo",
+  "D35EPF1.Experience": "Experiência",
+  "D35EPF1.Settings": "Configurações",
+  "D35EPF1.CompendiumBrowser": "Abrir navegador"
 }
