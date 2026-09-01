@@ -1,0 +1,17 @@
+{
+  "id": "d35e-pf1-sheet",
+  "title": "D35E - Pathfinder 1e Style Sheet",
+  "description": "Alternative D35E actor sheets styled after the Pathfinder 1e Foundry sheet while preserving D35E data, rules, listeners and system templates.",
+  "version": "0.1.0",
+  "authors": [{"name":"Mestre Well / ChatGPT"}],
+  "compatibility": {"minimum":"13","verified":"13"},
+  "esmodules": ["scripts/main.js"],
+  "styles": ["styles/pf1-sheet.css"],
+  "languages": [
+    {"lang":"en","name":"English","path":"lang/en.json"},
+    {"lang":"pt-BR","name":"Português (Brasil)","path":"lang/pt-BR.json"}
+  ],
+  "relationships": {
+    "systems": [{"id":"D35E","type":"system","compatibility":{"minimum":"3.1.0","verified":"3.1.0"}}]
+  }
+}
