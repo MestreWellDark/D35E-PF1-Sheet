@@ -1,0 +1,26 @@
+<section class="pf1-combat-page">
+  <div class="pf1-combat-top">
+    <div class="attribute bab" data-attribute="bab"><a class="attribute-name rollable">{{ localize 'D35E.BABAbbr' }}</a><strong>{{numberFormat system.attributes.bab.total decimals=0 sign=true}}</strong></div>
+    <div class="attribute cmb" data-attribute="cmb"><a class="attribute-name rollable">{{ localize 'D35E.CMBAbbr' }}</a><strong>{{numberFormat system.attributes.cmb.total decimals=0 sign=true}}</strong></div>
+    <div class="attribute melee-bab" data-attribute="melee-ab"><a class="attribute-name rollable">{{ localize 'D35E.Melee' }}</a><strong>{{numberFormat attackBonuses.melee decimals=0 sign=true}}</strong></div>
+    <div class="attribute ranged-bab" data-attribute="ranged-ab"><a class="attribute-name rollable">{{ localize 'D35E.Ranged' }}</a><strong>{{numberFormat attackBonuses.ranged decimals=0 sign=true}}</strong></div>
+    <div class="attribute initiative" data-attribute="init"><a class="attribute-name rollable">{{ localize 'D35E.Initiative' }}</a><strong>{{numberFormat system.attributes.init.total decimals=0 sign=true}}</strong></div>
+  </div>
+  <div class="pf1-filter-row"><input class="pf1-search-filter" type="search" placeholder="{{ localize 'D35E.Filter' }}"></div>
+  <div class="pf1-native-part pf1-native-attacks">
+    {{> "systems/D35E/templates/actors/parts/actor-attacks.html" sections=attacks}}
+  </div>
+
+  <div class="pf1-combat-defense-title"><i class="fas fa-shield-halved"></i> {{ localize 'D35E.Defenses' }}</div>
+  <div class="pf1-combat-defense-grid">
+    <div><span>{{ localize 'D35E.ACNormal' }}</span><strong>{{system.attributes.ac.normal.total}}</strong></div>
+    <div><span>{{ localize 'D35E.ACTouch' }}</span><strong>{{system.attributes.ac.touch.total}}</strong></div>
+    <div><span>{{ localize 'D35E.ACFlatFooted' }}</span><strong>{{system.attributes.ac.flatFooted.total}}</strong></div>
+    <div><span>{{ localize 'D35EPF1.CMD' }}</span><strong>{{system.attributes.cmd.total}}</strong></div>
+    <div><span>{{ localize 'D35E.CMDFlatFooted' }}</span><strong>{{system.attributes.cmd.flatFootedTotal}}</strong></div>
+    {{#each system.attributes.savingThrows as |save id|}}
+      <div class="saving-throw" data-savingthrow="{{id}}"><a class="attribute-name rollable">{{save.label}}</a><strong>{{numberFormat save.total decimals=0 sign=true}}</strong></div>
+    {{/each}}
+    <div><span>{{ localize 'D35E.SpellResistance' }}</span><strong>{{system.attributes.sr.total}}</strong></div>
+  </div>
+</section>
