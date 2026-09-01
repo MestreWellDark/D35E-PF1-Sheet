@@ -1,0 +1,124 @@
+/* D35E PF1 Style Sheet
+ * Scope is deliberately restricted to .d35e-pf1 so the base D35E UI remains untouched.
+ * The module keeps D35E templates and JS behavior intact and maps the presentation layer
+ * to the compact parchment/red-header visual language used by PF1's Foundry sheets.
+ */
+
+.app.window-app.D35E.d35e-pf1,
+.D35E.d35e-pf1 {
+  --pf1-red: #7a1f1f;
+  --pf1-red-dark: #4b1111;
+  --pf1-red-light: #a8473f;
+  --pf1-ink: #241c17;
+  --pf1-muted: #6c6259;
+  --pf1-line: #b8a991;
+  --pf1-line-dark: #776957;
+  --pf1-paper: #f3ead8;
+  --pf1-paper-2: #e7dcc8;
+  --pf1-panel: rgba(255,255,255,.28);
+  --pf1-panel-strong: rgba(255,255,255,.48);
+  --pf1-gold: #9b7a39;
+  font-family: "Signika", "Palatino Linotype", Georgia, serif;
+  color: var(--pf1-ink);
+}
+
+.D35E.d35e-pf1 .window-content {
+  padding: 0;
+  background: linear-gradient(rgba(248,242,229,.93), rgba(236,225,204,.93)), url("/systems/D35E/ui/parchment.jpg") center/cover;
+  color: var(--pf1-ink);
+}
+
+.D35E.d35e-pf1 form { padding: 8px; gap: 5px; }
+.D35E.d35e-pf1 a { color: var(--pf1-ink); }
+.D35E.d35e-pf1 a:hover { color: var(--pf1-red); text-shadow: 0 0 5px rgba(122,31,31,.25); }
+.D35E.d35e-pf1 input,
+.D35E.d35e-pf1 select,
+.D35E.d35e-pf1 textarea { border: 0; border-bottom: 1px solid var(--pf1-line-dark); border-radius: 0; background: rgba(255,255,255,.22); color: var(--pf1-ink); font-family: inherit; }
+.D35E.d35e-pf1 input:focus,
+.D35E.d35e-pf1 select:focus,
+.D35E.d35e-pf1 textarea:focus { box-shadow: 0 0 0 1px rgba(122,31,31,.25); border-color: var(--pf1-red); }
+
+.D35E.d35e-pf1 .sheet-header { min-height: 145px; padding: 7px; gap: 10px; border: 1px solid var(--pf1-line-dark); border-radius: 3px 3px 0 0; background: linear-gradient(180deg, rgba(255,255,255,.38), rgba(222,207,181,.38)); box-shadow: inset 0 0 18px rgba(79,54,28,.08); }
+.D35E.d35e-pf1 .sheet-header .profile { flex: 0 0 128px; position: relative; }
+.D35E.d35e-pf1 .sheet-header img.profile { width: 128px; height: 128px; object-fit: cover; border: 2px solid var(--pf1-line-dark); border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,.25); }
+.D35E.d35e-pf1 .sheet-header img.token-image { width: 42px; height: 42px; object-fit: cover; position: absolute; right: -4px; bottom: 0; border: 1px solid var(--pf1-line-dark); border-radius: 50%; background: var(--pf1-paper); }
+.D35E.d35e-pf1 .sheet-header .header-details { padding: 1px 4px; }
+.D35E.d35e-pf1 .sheet-header h1.charname { border: 0; margin: 0 8px 3px 0; }
+.D35E.d35e-pf1 .sheet-header h1.charname input { height: 42px; font-size: 30px; font-family: "Modesto Condensed", "Palatino Linotype", Georgia, serif; font-weight: 700; border-bottom: 2px solid var(--pf1-red-dark); background: transparent; }
+.D35E.d35e-pf1 .sheet-header .summary { margin: 3px 0; padding: 0; border: 0; }
+.D35E.d35e-pf1 .sheet-header .summary li { border-right: 1px solid var(--pf1-line); }
+.D35E.d35e-pf1 .sheet-header .charlevel { color: var(--pf1-red-dark); font-weight: 700; }
+.D35E.d35e-pf1 .xpbar { border: 1px solid var(--pf1-line-dark); height: 5px; background: rgba(0,0,0,.08); }
+.D35E.d35e-pf1 .xpbar .bar { background: var(--pf1-red); height: 100%; display:block; }
+
+.D35E.d35e-pf1 .sheet-navigation { flex: 0 0 auto; min-height: 34px; margin: 0; padding: 0 5px; align-items: stretch; border-top: 3px solid var(--pf1-red-dark); border-bottom: 1px solid var(--pf1-line-dark); background: linear-gradient(#efe5d2, #ddd0b8); box-shadow: 0 1px 2px rgba(0,0,0,.12); overflow-x: auto; scrollbar-width: thin; }
+.D35E.d35e-pf1 .sheet-navigation .item { flex: 0 0 auto; min-width: 58px; padding: 8px 9px 6px; border-right: 1px solid rgba(119,105,87,.35); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .025em; text-align: center; white-space: nowrap; }
+.D35E.d35e-pf1 .sheet-navigation .item.active { color: #fff; background: linear-gradient(var(--pf1-red-light), var(--pf1-red)); text-shadow: 0 1px 1px #000; box-shadow: inset 0 -2px 0 var(--pf1-red-dark); }
+.D35E.d35e-pf1 .sheet-navigation .header-button { min-width: 34px; }
+.D35E.d35e-pf1 .primary-body { padding: 5px 2px 2px; background: rgba(255,255,255,.08); }
+
+.D35E.d35e-pf1 .block-header,
+.D35E.d35e-pf1 h2.block-header,
+.D35E.d35e-pf1 h3.block-header,
+.D35E.d35e-pf1 .inventory-list .inventory-header,
+.D35E.d35e-pf1 .item-list .item-header,
+.D35E.d35e-pf1 .spellbook-header { min-height: 27px; padding: 4px 7px; margin: 4px 0 2px; border: 0; border-bottom: 2px solid var(--pf1-red-dark); background: linear-gradient(90deg, rgba(122,31,31,.13), rgba(122,31,31,.02)); color: var(--pf1-red-dark); font-family: "Modesto Condensed", "Palatino Linotype", Georgia, serif; font-weight: 700; letter-spacing: .025em; }
+
+.D35E.d35e-pf1 .attributes .attribute,
+.D35E.d35e-pf1 .defenses .attribute,
+.D35E.d35e-pf1 .traits .form-group,
+.D35E.d35e-pf1 .details .form-group,
+.D35E.d35e-pf1 .health,
+.D35E.d35e-pf1 .ac,
+.D35E.d35e-pf1 .saving-throws { border-color: var(--pf1-line); background: var(--pf1-panel); }
+.D35E.d35e-pf1 .attribute .attribute-name,
+.D35E.d35e-pf1 .attribute-name { color: var(--pf1-red-dark); font-weight: 700; }
+.D35E.d35e-pf1 .ability-scores,
+.D35E.d35e-pf1 .attributes { gap: 4px; }
+.D35E.d35e-pf1 .ability-scores .ability,
+.D35E.d35e-pf1 .attributes .attribute { border: 1px solid var(--pf1-line-dark); border-radius: 2px; background: linear-gradient(rgba(255,255,255,.38), rgba(226,213,190,.35)); box-shadow: inset 0 0 8px rgba(70,45,20,.05); }
+
+.D35E.d35e-pf1 .inventory-list,
+.D35E.d35e-pf1 .item-list { color: var(--pf1-ink); }
+.D35E.d35e-pf1 .inventory-list .item,
+.D35E.d35e-pf1 .item-list .item { min-height: 30px; border-bottom: 1px solid rgba(119,105,87,.34); background: rgba(255,255,255,.08); }
+.D35E.d35e-pf1 .inventory-list .item:nth-child(even),
+.D35E.d35e-pf1 .item-list .item:nth-child(even) { background: rgba(122,31,31,.025); }
+.D35E.d35e-pf1 .inventory-list .item:hover,
+.D35E.d35e-pf1 .item-list .item:hover { background: rgba(155,122,57,.10); }
+.D35E.d35e-pf1 .item-image { border: 1px solid var(--pf1-line-dark); border-radius: 2px; background-color: rgba(255,255,255,.25); }
+.D35E.d35e-pf1 .item-name { font-weight: 600; }
+.D35E.d35e-pf1 .item-controls { color: var(--pf1-muted); }
+
+.D35E.d35e-pf1 .skills-list .skill,
+.D35E.d35e-pf1 .skill-list .skill { min-height: 26px; border-bottom: 1px dotted rgba(119,105,87,.45); }
+.D35E.d35e-pf1 .skills-list .skill:nth-child(even),
+.D35E.d35e-pf1 .skill-list .skill:nth-child(even) { background: rgba(255,255,255,.12); }
+.D35E.d35e-pf1 .skill .skill-name { font-weight: 600; }
+
+.D35E.d35e-pf1 button,
+.D35E.d35e-pf1 .blue-button,
+.D35E.d35e-pf1 a.blue-button { border: 1px solid var(--pf1-red-dark) !important; border-radius: 2px !important; background: linear-gradient(var(--pf1-red-light), var(--pf1-red)) !important; color: #fff !important; text-shadow: 0 1px 1px #000; box-shadow: none !important; }
+.D35E.d35e-pf1 button:hover,
+.D35E.d35e-pf1 .blue-button:hover { filter: brightness(1.08); }
+
+.D35E.d35e-pf1 nav.spellbooks,
+.D35E.d35e-pf1 .spellbook .spellbooks { border-bottom: 1px solid var(--pf1-line-dark); background: rgba(255,255,255,.16); }
+.D35E.d35e-pf1 nav.spellbooks .item.active { color: var(--pf1-red); font-weight: 700; border-bottom: 2px solid var(--pf1-red); }
+
+.D35E.d35e-pf1 * { scrollbar-width: thin; scrollbar-color: var(--pf1-line-dark) transparent; }
+.D35E.d35e-pf1 ::-webkit-scrollbar { width: 7px; height: 7px; }
+.D35E.d35e-pf1 ::-webkit-scrollbar-thumb { background: var(--pf1-line-dark); border-radius: 4px; }
+.D35E.d35e-pf1 ::-webkit-scrollbar-track { background: transparent; }
+
+.D35E.d35e-pf1 .item-add-overlay,
+.D35E.d35e-pf1 .working { background: rgba(35,26,19,.62); }
+.D35E.d35e-pf1 .item-add-list { border: 2px solid var(--pf1-red-dark); background: var(--pf1-paper); box-shadow: 0 4px 18px rgba(0,0,0,.35); }
+.D35E.d35e-pf1.pf1-npc .sheet-header,
+.D35E.d35e-pf1.pf1-monster .sheet-header { min-height: 130px; }
+
+@media (max-width: 850px) {
+  .D35E.d35e-pf1 .sheet-navigation .item { padding-left: 6px; padding-right: 6px; font-size: 11px; }
+  .D35E.d35e-pf1 .sheet-header img.profile { width: 108px; height: 108px; }
+  .D35E.d35e-pf1 .sheet-header .profile { flex-basis: 108px; }
+}
