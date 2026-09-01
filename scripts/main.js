@@ -62,7 +62,14 @@ Hooks.once("init", async () => {
 
   await foundry.applications.handlebars.loadTemplates([
     `${MODULE_ROOT}/templates/actors/parts/item-drawer.html`,
-    `${MODULE_ROOT}/templates/actors/parts/npc-summary.html`
+    `${MODULE_ROOT}/templates/actors/parts/npc-summary.html`,
+    `${MODULE_ROOT}/templates/actors/parts/attributes-pf1.html`,
+    `${MODULE_ROOT}/templates/actors/parts/combat-pf1.html`,
+    `${MODULE_ROOT}/templates/actors/parts/inventory-pf1.html`,
+    `${MODULE_ROOT}/templates/actors/parts/features-pf1.html`,
+    `${MODULE_ROOT}/templates/actors/parts/skills-pf1.html`,
+    `${MODULE_ROOT}/templates/actors/parts/buffs-pf1.html`,
+    `${MODULE_ROOT}/templates/actors/parts/spellbook-pf1.html`
   ]);
 
   const Actors = foundry.documents.collections.Actors;
@@ -87,6 +94,18 @@ Hooks.on("renderActorSheet", (app, html) => {
   if (!(app instanceof D35EPF1CharacterSheet || app instanceof D35EPF1NPCSheet || app instanceof D35EPF1MonsterSheet)) return;
   const root = html?.nodeType === 1 ? html : html?.[0] ?? html;
   root?.classList?.add("d35e-pf1-rendered");
+
+  root?.querySelectorAll?.(".pf1-search-filter").forEach((input) => {
+    input.addEventListener("input", (event) => {
+      const query = String(event.currentTarget.value ?? "").trim().toLowerCase();
+      const tab = event.currentTarget.closest(".tab");
+      if (!tab) return;
+      tab.querySelectorAll(".item-list > .item, .skills-list > .skill, .skills-list > .sub-skill").forEach((row) => {
+        const text = row.textContent?.toLowerCase() ?? "";
+        row.style.display = !query || text.includes(query) ? "" : "none";
+      });
+    });
+  });
 });
 
 Hooks.once("ready", () => {
