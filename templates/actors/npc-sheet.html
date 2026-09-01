@@ -19,13 +19,13 @@
     <div class="tab summary pf1-summary-tab" data-group="primary" data-tab="summary">
       {{> "modules/d35e-pf1-sheet/templates/actors/parts/npc-summary.html"}}
     </div>
-    <div class="tab attributes pf1-panel-tab" data-group="primary" data-tab="attributes">{{> "systems/D35E/templates/actors/parts/actor-attributes.html"}}</div>
-    <div class="tab attacks pf1-panel-tab" data-group="primary" data-tab="attacks">{{> "systems/D35E/templates/actors/parts/actor-attacks.html" sections=attacks}}</div>
-    <div class="tab inventory pf1-panel-tab" data-group="primary" data-tab="inventory">{{> "systems/D35E/templates/actors/parts/actor-inventory.html" sections=inventory}}</div>
-    <div class="tab features pf1-panel-tab" data-group="primary" data-tab="feats">{{> "systems/D35E/templates/actors/parts/actor-features.html" sections=features}}</div>
-    <div class="tab skills pf1-panel-tab" data-group="primary" data-tab="skills">{{> "systems/D35E/templates/actors/parts/actor-skills.html"}}</div>
-    <div class="tab buffs pf1-panel-tab" data-group="primary" data-tab="buffs">{{> "systems/D35E/templates/actors/parts/actor-buffs.html" sections=buffs}}</div>
-    <div class="tab spellbook pf1-panel-tab" data-group="primary" data-tab="spellbook">{{> "systems/D35E/templates/actors/parts/actor-spellbook.html"}}</div>
+    <div class="tab attributes pf1-panel-tab" data-group="primary" data-tab="attributes">{{> "modules/d35e-pf1-sheet/templates/actors/parts/attributes-pf1.html"}}</div>
+    <div class="tab attacks pf1-panel-tab" data-group="primary" data-tab="attacks">{{> "modules/d35e-pf1-sheet/templates/actors/parts/combat-pf1.html"}}</div>
+    <div class="tab inventory pf1-panel-tab" data-group="primary" data-tab="inventory">{{> "modules/d35e-pf1-sheet/templates/actors/parts/inventory-pf1.html"}}</div>
+    <div class="tab features pf1-panel-tab" data-group="primary" data-tab="feats">{{> "modules/d35e-pf1-sheet/templates/actors/parts/features-pf1.html"}}</div>
+    <div class="tab skills pf1-panel-tab" data-group="primary" data-tab="skills">{{> "modules/d35e-pf1-sheet/templates/actors/parts/skills-pf1.html"}}</div>
+    <div class="tab buffs pf1-panel-tab" data-group="primary" data-tab="buffs">{{> "modules/d35e-pf1-sheet/templates/actors/parts/buffs-pf1.html"}}</div>
+    <div class="tab spellbook pf1-panel-tab" data-group="primary" data-tab="spellbook">{{> "modules/d35e-pf1-sheet/templates/actors/parts/spellbook-pf1.html"}}</div>
     <div class="tab biography pf1-editor-tab" data-group="primary" data-tab="biography">{{editor rendered.biography target="system.details.biography.value" button=true owner=owner editable=editable engine="prosemirror"}}</div>
     <div class="tab actor-notes pf1-editor-tab" data-group="primary" data-tab="notes">{{editor rendered.notes target="system.details.notes.value" button=true owner=owner editable=editable engine="prosemirror"}}</div>
     <div class="tab actor-notes pf1-panel-tab" data-group="primary" data-tab="config">{{> "systems/D35E/templates/actors/parts/actor-config.html"}}</div>
