@@ -1,8 +1,8 @@
 {
   "id": "d35e-pf1-sheet",
   "title": "D35E - Pathfinder 1e Style Sheet",
-  "description": "Alternative D35E actor sheets with PF1-style page structure, custom templates, compact tab layouts, and D35E-native mechanics/listeners.",
-  "version": "0.3.0",
+  "description": "Alternative D35E actor sheets with PF1-style page structure, custom templates, improved readability, compact tab layouts, and D35E-native mechanics/listeners.",
+  "version": "0.3.1",
   "authors": [
     {
       "name": "Mestre Well"
@@ -17,7 +17,8 @@
   ],
   "styles": [
     "styles/pf1-sheet.css",
-    "styles/pf1-v03.css"
+    "styles/pf1-v03.css",
+    "styles/pf1-v031-readability.css"
   ],
   "languages": [
     {
