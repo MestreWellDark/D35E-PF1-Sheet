@@ -1,0 +1,71 @@
+<section class="pf1-npc-identity">
+  <div class="pf1-portrait-wrap">
+    <img class="pf1-portrait" src="{{actor.img}}" title="{{actor.name}}" data-edit="img">
+    <img class="pf1-token-image" src="{{actor.system.tokenImg}}" data-edit="system.tokenImg">
+  </div>
+  <div class="pf1-npc-main">
+    <input class="pf1-character-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'D35E.CharacterName' }}">
+    <div class="pf1-bio-row pf1-bio-row-2">
+      <input type="text" name="system.details.type" value="{{system.details.type}}" placeholder="{{ localize 'D35E.TypeSubType' }}">
+      <div class="pf1-alignment-field">
+        <input type="text" name="system.details.alignment" value="{{system.details.alignment}}" placeholder="{{ localize 'D35E.Alignment' }}" class="alignment-text-field {{#unless (eq system.details.alignmentMode 'text')}}hidden{{/unless}}">
+        <span class="alignment-label {{#if (eq system.details.alignmentMode 'text')}}hidden{{/if}}">{{system.details.alignmentLabel}}</span>
+        {{#if owner}}<a class="alignment-selector-btn"><i class="fas fa-pen"></i></a>{{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="pf1-npc-meta">
+    <div><span>{{ localize 'D35E.HD' }}</span><strong>{{system.attributes.hd.total}}</strong></div>
+    <div><span>{{ localize 'D35E.CR' }}</span><strong>{{labels.totalCr}}</strong></div>
+    <label>{{ localize 'D35E.BaseCR' }}<input name="system.details.cr" type="text" value="{{labels.cr}}"></label>
+    <small>{{labels.totalExp}} {{ localize 'D35E.XP' }}</small>
+  </div>
+</section>
+
+<section class="pf1-ability-strip">
+  {{#each system.abilities as |ability id|}}
+  <div class="pf1-ability-mini" data-ability="{{id}}">
+    <a class="ability-name rollable">{{ability.label}}</a><strong>{{#if ability.isZero}}—{{else}}{{ability.total}}{{/if}}</strong><span>({{numberFormat ability.mod decimals=0 sign=true}})</span>
+  </div>
+  {{/each}}
+</section>
+
+<div class="pf1-two-panel-row">
+  <div class="pf1-stat-panel">
+    <div class="pf1-table-title">{{ localize 'D35E.Health' }}</div>
+    <div class="pf1-table-grid pf1-hp-grid">
+      <label>{{ localize 'D35EPF1.Current' }}<input name="system.attributes.hp.value" type="text" value="{{system.attributes.hp.value}}"></label>
+      <label>{{ localize 'D35EPF1.Maximum' }}<span>{{system.attributes.hp.max}}</span></label>
+      <label>{{ localize 'D35E.TempShort' }}<input name="system.attributes.hp.temp" type="text" value="{{system.attributes.hp.temp}}"></label>
+      <label>{{ localize 'D35E.Nonlethal' }}<input name="system.attributes.hp.nonlethal" type="text" value="{{system.attributes.hp.nonlethal}}"></label>
+    </div>
+    <a class="random-hp-roll pf1-inline-action">{{ localize 'D35E.RandomizeHP' }}</a>
+  </div>
+  <div class="pf1-stat-panel">
+    <div class="pf1-table-title">{{ localize 'D35E.Speed' }}</div>
+    <div class="pf1-table-grid pf1-speed-grid">
+      <label>{{ localize 'D35E.SpeedLand' }}<span>{{system.attributes.speed.land.total}}</span></label>
+      <label>{{ localize 'D35E.SpeedClimb' }}<span>{{#if system.attributes.speed.climb.total}}{{system.attributes.speed.climb.total}}{{else}}—{{/if}}</span></label>
+      <label>{{ localize 'D35E.SpeedSwim' }}<span>{{#if system.attributes.speed.swim.total}}{{system.attributes.speed.swim.total}}{{else}}—{{/if}}</span></label>
+      <label>{{ localize 'D35E.SpeedBurrow' }}<span>{{#if system.attributes.speed.burrow.total}}{{system.attributes.speed.burrow.total}}{{else}}—{{/if}}</span></label>
+      <label>{{ localize 'D35E.SpeedFly' }}<span>{{#if system.attributes.speed.fly.total}}{{system.attributes.speed.fly.total}}{{else}}—{{/if}}</span></label>
+    </div>
+  </div>
+</div>
+
+<div class="pf1-section-caption"><i class="fas fa-shield-halved"></i> {{ localize 'D35E.Defenses' }}</div>
+<div class="pf1-defense-grid">
+  <div><span>{{ localize 'D35E.ACNormal' }}</span><strong>{{system.attributes.ac.normal.total}}</strong></div>
+  <div><span>{{ localize 'D35E.ACTouch' }}</span><strong>{{system.attributes.ac.touch.total}}</strong></div>
+  <div><span>{{ localize 'D35E.ACFlatFooted' }}</span><strong>{{system.attributes.ac.flatFooted.total}}</strong></div>
+  <div><span>{{ localize 'D35EPF1.CMD' }}</span><strong>{{system.attributes.cmd.total}}</strong></div>
+  <div><span>{{ localize 'D35E.CMDFlatFooted' }}</span><strong>{{system.attributes.cmd.flatFootedTotal}}</strong></div>
+  {{#each system.attributes.savingThrows as |save id|}}<div class="saving-throw" data-savingthrow="{{id}}"><a class="attribute-name rollable">{{save.label}}</a><strong>{{numberFormat save.total decimals=0 sign=true}}</strong></div>{{/each}}
+  <div><span>{{ localize 'D35E.SpellResistance' }}</span><strong>{{system.attributes.sr.total}}</strong></div>
+</div>
+
+<div class="pf1-combat-strip">
+  <div data-attribute="bab"><span>{{ localize 'D35E.BABAbbr' }}</span><strong>{{numberFormat system.attributes.bab.total decimals=0 sign=true}}</strong></div>
+  <div data-attribute="cmb"><span>{{ localize 'D35E.CMBAbbr' }}</span><strong>{{numberFormat system.attributes.cmb.total decimals=0 sign=true}}</strong></div>
+  <div class="attribute initiative" data-attribute="init"><a class="attribute-name rollable">{{ localize 'D35E.Initiative' }}</a><strong>{{numberFormat system.attributes.init.total decimals=0 sign=true}}</strong></div>
+</div>
