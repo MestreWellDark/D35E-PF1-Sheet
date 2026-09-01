@@ -1,0 +1,10 @@
+<section class="pf1-skills-page">
+  <div class="pf1-skill-metrics">
+    <div><span>{{ localize 'D35E.SkillRankPlural' }}</span><strong>{{skillRanks.allowed}}</strong></div>
+    <div><span>{{ localize 'D35E.Used' }}</span><strong>{{skillRanks.used}}</strong></div>
+    <div><span>{{ localize 'D35E.ACP' }}</span><strong>{{system.attributes.acp.total}}</strong></div>
+  </div>
+  <div class="pf1-native-part pf1-native-skills">
+    {{> "systems/D35E/templates/actors/parts/actor-skills-front.html"}}
+  </div>
+</section>
