@@ -1,0 +1,12 @@
+<div class="item-add-overlay item-add-{{randomUuid}}-overlay" style="display:none">
+  <div class="item-add-list flexcol inventory-list">
+    <a class="item-add-close-box"><i class="fas fa-times"></i></a>
+    <h2 class="block-header" id="items-add-{{randomUuid}}-label">{{ localize 'D35E.Add' }}</h2>
+    <div class="items-add-{{randomUuid}}-working-item"></div>
+    <div class="items-add-{{randomUuid}}-list flexcol" style="display:none">
+      <input type="text" id="{{randomUuid}}-itemList-filter" name="{{randomUuid}}-itemList-filter" class="item-search-input" placeholder="{{ localize 'D35E.Filter' }}">
+      <ol class="item-list" id="{{randomUuid}}-itemList"></ol>
+      <a class="blue-button open-compendium-browser items-add-{{randomUuid}}-openCompendium">{{ localize 'D35EPF1.CompendiumBrowser' }}</a>
+    </div>
+  </div>
+</div>
