@@ -1,0 +1,49 @@
+<section class="pf1-attributes-page">
+  <div class="pf1-ability-table">
+    <div class="pf1-ability-table-head">
+      <span>{{ localize 'D35E.Ability' }}</span>
+      <span>{{ localize 'D35E.Total' }}</span>
+      <span>{{ localize 'D35E.ModifierShort' }}</span>
+      <span>{{ localize 'D35E.Damage' }}</span>
+      <span>{{ localize 'D35E.Drain' }}</span>
+      <span>{{ localize 'D35E.Penalty' }}</span>
+    </div>
+    {{#each system.abilities as |ability id|}}
+    <div class="pf1-ability-table-row ability" data-ability="{{id}}">
+      <a class="ability-name rollable">{{ability.label}}</a>
+      <div class="pf1-ability-total">
+        {{#if ability.isZero}}
+          <span>—</span>
+        {{else}}
+          <input type="hidden" name="system.abilities.{{id}}.value" value="{{ability.value}}" data-dtype="Number">
+          <input class="ability-base" name="system.abilities.{{id}}.tempvalue" type="text" value="{{ability.value}}" data-dtype="Number">
+          <a class="configure-ability" for="{{id}}" title="{{ localize 'D35E.Configure' }}"><i class="fas fa-pen-to-square"></i></a>
+        {{/if}}
+      </div>
+      <strong>{{#if ability.isZero}}—{{else}}{{numberFormat ability.mod decimals=0 sign=true}}{{/if}}</strong>
+      <input name="system.abilities.{{id}}.damage" type="text" value="{{#if ability.damage}}{{ability.damage}}{{/if}}" data-dtype="Number" placeholder="0">
+      <input name="system.abilities.{{id}}.drain" type="text" value="{{#if ability.drain}}{{ability.drain}}{{/if}}" data-dtype="Number" placeholder="0">
+      <input name="system.abilities.{{id}}.userPenalty" type="text" value="{{#if ability.userPenalty}}{{ability.userPenalty}}{{/if}}" data-dtype="Number" placeholder="0">
+    </div>
+    {{/each}}
+  </div>
+
+  <a class="btn point-buy pf1-point-buy"><i class="fas fa-calculator"></i> {{ localize 'D35E.UsePointBuy' }}</a>
+
+  <div class="pf1-derived-attributes">
+    <div><span>{{ localize 'D35E.ACP' }}</span><strong>{{system.attributes.acp.total}}</strong></div>
+    <div><span>{{ localize 'D35E.MaxDexShort' }}</span><strong>{{#if maxDexUnlimited}}{{ localize 'D35E.Unlimited' }}{{else}}{{system.attributes.maxDex.total}}{{/if}}</strong></div>
+    <div><span>{{ localize 'D35E.Reach' }}</span><strong>{{#if system.traits.reach}}{{system.traits.reach}}{{else}}—{{/if}}</strong></div>
+    <div>
+      <span>{{ localize 'D35E.Size' }}</span>
+      <select class="actor-size" name="system.traits.size">
+        {{#select system.traits.size}}{{#each config.actorSizes as |label size|}}<option value="{{size}}">{{label}}</option>{{/each}}{{/select}}
+      </select>
+    </div>
+  </div>
+
+  <div class="pf1-traits-title">{{ localize 'D35E.Traits' }}</div>
+  <div class="pf1-traits-table">
+    {{> "systems/D35E/templates/actors/parts/actor-traits.html"}}
+  </div>
+</section>
