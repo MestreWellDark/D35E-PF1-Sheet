@@ -172,25 +172,25 @@
     </div>
 
     <div class="tab attributes pf1-panel-tab" data-group="primary" data-tab="attributes">
-      {{> "systems/D35E/templates/actors/parts/actor-attributes.html"}}
+      {{> "modules/d35e-pf1-sheet/templates/actors/parts/attributes-pf1.html"}}
     </div>
     <div class="tab attacks pf1-panel-tab" data-group="primary" data-tab="attacks">
-      {{> "systems/D35E/templates/actors/parts/actor-attacks.html" sections=attacks}}
+      {{> "modules/d35e-pf1-sheet/templates/actors/parts/combat-pf1.html"}}
     </div>
     <div class="tab inventory primary-group pf1-panel-tab" data-group="primary" data-tab="inventory">
-      {{> "systems/D35E/templates/actors/parts/actor-inventory.html" sections=inventory}}
+      {{> "modules/d35e-pf1-sheet/templates/actors/parts/inventory-pf1.html"}}
     </div>
     <div class="tab feats pf1-panel-tab" data-group="primary" data-tab="feats">
-      {{> "systems/D35E/templates/actors/parts/actor-features.html" sections=features}}
+      {{> "modules/d35e-pf1-sheet/templates/actors/parts/features-pf1.html"}}
     </div>
     <div class="tab skills pf1-panel-tab" data-group="primary" data-tab="skills">
-      {{> "systems/D35E/templates/actors/parts/actor-skills-front.html"}}
+      {{> "modules/d35e-pf1-sheet/templates/actors/parts/skills-pf1.html"}}
     </div>
     <div class="tab buffs pf1-panel-tab" data-group="primary" data-tab="buffs">
-      {{> "systems/D35E/templates/actors/parts/actor-buffs.html" sections=buffs}}
+      {{> "modules/d35e-pf1-sheet/templates/actors/parts/buffs-pf1.html"}}
     </div>
     <div class="tab spellbook pf1-panel-tab" data-group="primary" data-tab="spellbook">
-      {{> "systems/D35E/templates/actors/parts/actor-spellbook-front.html"}}
+      {{> "modules/d35e-pf1-sheet/templates/actors/parts/spellbook-pf1.html"}}
     </div>
     <div class="tab biography pf1-editor-tab" data-group="primary" data-tab="biography">
       {{editor rendered.biography target="system.details.biography.value" button=true owner=owner editable=editable engine="prosemirror"}}
