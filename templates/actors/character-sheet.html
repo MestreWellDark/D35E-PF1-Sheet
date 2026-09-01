@@ -1,0 +1,205 @@
+<form class="{{cssClass}} pf1-sheet pf1-character-sheet flexcol" autocomplete="off">
+  {{#unless hasClasses}}<div class="pf1-warning">{{ localize 'D35E.WarningMissingClass' }}</div>{{/unless}}
+  {{#if hasClasses}}{{#unless abilitiesChanged}}<div class="pf1-warning">{{{ localize 'D35E.WarningMissingAbilityScores' }}}</div>{{/unless}}{{/if}}
+  {{#if notAllLevelsAssigned}}<div class="pf1-warning">{{ localize 'D35E.WarningMissingLevelData' }}</div>{{/if}}
+
+  <div class="item-add-overlay item-add-{{randomUuid}}-overlay" style="display:none">
+    <div class="item-add-list flexcol inventory-list">
+      <a class="item-add-close-box"><i class="fas fa-times"></i></a>
+      <h2 class="block-header" id="items-add-{{randomUuid}}-label">{{ localize 'D35E.Add' }}</h2>
+      <div class="items-add-{{randomUuid}}-working-item"></div>
+      <div class="items-add-{{randomUuid}}-list flexcol" style="display:none">
+        <input type="text" id="{{randomUuid}}-itemList-filter" name="{{randomUuid}}-itemList-filter" class="item-search-input" placeholder="{{ localize 'D35E.Filter' }}">
+        <ol class="item-list" id="{{randomUuid}}-itemList"></ol>
+        <a class="blue-button open-compendium-browser items-add-{{randomUuid}}-openCompendium">{{ localize 'D35EPF1.CompendiumBrowser' }}</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="sheet-navigation pf1-primary-tabs tabs" data-group="primary">
+    <a class="item active" data-tab="details">{{ localize 'D35E.Summary' }}</a>
+    <a class="item" data-tab="attributes">{{ localize 'D35E.Attributes' }}</a>
+    <a class="item" data-tab="attacks">{{ localize 'D35E.Combat' }}</a>
+    <a class="item" data-tab="inventory">{{ localize 'D35E.Inventory' }}</a>
+    <a class="item" data-tab="feats">{{ localize 'D35E.Features' }}</a>
+    <a class="item" data-tab="skills">{{ localize 'D35E.Skills' }}</a>
+    <a class="item" data-tab="buffs">{{ localize 'D35E.Buffs' }}</a>
+    {{#if system.showSpellcastingSheet}}<a class="item" data-tab="spellbook">{{ localize 'D35E.Spells' }}</a>{{/if}}
+    <a class="item" data-tab="biography">{{ localize 'D35E.Biography' }}</a>
+    <a class="item" data-tab="notes">{{ localize 'D35E.Notes' }}</a>
+    <a class="item pf1-settings-tab" data-tab="config" title="{{ localize 'D35EPF1.Settings' }}"><i class="fas fa-file-lines"></i></a>
+  </nav>
+
+  <section class="primary-body pf1-primary-body">
+    <div class="tab details pf1-summary-tab" data-group="primary" data-tab="details">
+      <section class="pf1-identity-grid">
+        <div class="pf1-portrait-wrap">
+          <img class="pf1-portrait" src="{{actor.img}}" title="{{actor.name}}" data-edit="img">
+          <img class="pf1-token-image" src="{{actor.system.tokenImg}}" title="Token" data-edit="system.tokenImg">
+        </div>
+
+        <div class="pf1-identity-fields">
+          <input class="pf1-character-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'D35E.CharacterName' }}">
+          <div class="pf1-bio-row pf1-bio-row-3">
+            <input name="system.details.gender" type="text" value="{{system.details.gender}}" placeholder="{{ localize 'D35E.Gender' }}">
+            <input name="system.details.deity" type="text" value="{{system.details.deity}}" placeholder="{{ localize 'D35E.Deity' }}">
+            <input name="system.details.age" type="text" value="{{system.details.age}}" placeholder="{{ localize 'D35E.Age' }}">
+          </div>
+          <div class="pf1-bio-row pf1-bio-row-3">
+            <input name="system.details.height" type="text" value="{{system.details.height}}" placeholder="{{ localize 'D35E.Height' }}">
+            <input name="system.details.weight" type="text" value="{{system.details.weight}}" placeholder="{{ localize 'D35E.Weight' }}">
+            <div class="pf1-alignment-field">
+              <input type="text" name="system.details.alignment" value="{{system.details.alignment}}" placeholder="{{ localize 'D35E.Alignment' }}" class="alignment-text-field {{#unless (eq system.details.alignmentMode 'text')}}hidden{{/unless}}">
+              <span class="alignment-label {{#if (eq system.details.alignmentMode 'text')}}hidden{{/if}}">{{system.details.alignmentLabel}}</span>
+              {{#if editable}}<a class="alignment-selector-btn"><i class="fas fa-pen"></i></a>{{/if}}
+            </div>
+          </div>
+          <div class="pf1-race-row item {{#if race}}has-race{{/if}}" {{#if race}}data-item-id="{{race.id}}"{{/if}}>
+            <strong>{{ localize 'D35E.Race' }}</strong>
+            {{#if race}}<span>{{race.name}}</span>{{else}}<span class="pf1-muted">{{{ localize 'D35E.DropFromRaceCompendium' }}}</span>{{/if}}
+            <span class="pf1-race-controls">
+              {{#if owner}}{{#if race}}<a class="item-edit"><i class="fas fa-edit"></i></a>{{/if}}{{/if}}
+            </span>
+          </div>
+        </div>
+
+        <div class="pf1-level-box">
+          <div class="pf1-level-value">{{system.details.level.value}}</div>
+          <div class="pf1-level-label">{{ localize 'D35E.Level' }}</div>
+          {{#unless disableExperience}}
+          <div class="pf1-xp-heading">{{ localize 'D35EPF1.Experience' }}</div>
+          <div class="pf1-xp-line">
+            <input name="system.details.xp.value" type="text" value="{{system.details.xp.value}}">
+            <span>/ {{system.details.xp.max}}</span>
+          </div>
+          <div class="xpbar"><span class="bar" style="width:{{system.details.xp.pct}}%"></span></div>
+          {{/unless}}
+          <a class="btn rest pf1-rest-button"><i class="fas fa-bed"></i> {{ localize 'D35E.Rest' }}</a>
+        </div>
+      </section>
+
+      <section class="pf1-ability-strip">
+        {{#each system.abilities as |ability id|}}
+        <div class="pf1-ability-mini" data-ability="{{id}}">
+          <a class="ability-name rollable">{{ability.label}}</a>
+          <strong>{{#if ability.isZero}}—{{else}}{{ability.total}}{{/if}}</strong>
+          <span>({{numberFormat ability.mod decimals=0 sign=true}})</span>
+        </div>
+        {{/each}}
+      </section>
+
+      <section class="pf1-summary-tables">
+        <div class="pf1-summary-main">
+          <div class="pf1-two-panel-row">
+            <div class="pf1-stat-panel">
+              <div class="pf1-table-title">{{ localize 'D35E.Health' }}</div>
+              <div class="pf1-table-grid pf1-hp-grid">
+                <label>{{ localize 'D35EPF1.Current' }}<input name="system.attributes.hp.value" type="text" value="{{system.attributes.hp.value}}"></label>
+                <label>{{ localize 'D35EPF1.Maximum' }}<span>{{system.attributes.hp.max}}</span></label>
+                <label>{{ localize 'D35E.TempShort' }}<input name="system.attributes.hp.temp" type="text" value="{{system.attributes.hp.temp}}"></label>
+                <label>{{ localize 'D35E.Nonlethal' }}<input name="system.attributes.hp.nonlethal" type="text" value="{{system.attributes.hp.nonlethal}}"></label>
+              </div>
+            </div>
+            <div class="pf1-stat-panel">
+              <div class="pf1-table-title">{{ localize 'D35E.Speed' }}</div>
+              <div class="pf1-table-grid pf1-speed-grid">
+                <label>{{ localize 'D35E.SpeedLand' }}<span>{{system.attributes.speed.land.total}}</span></label>
+                <label>{{ localize 'D35E.SpeedClimb' }}<span>{{#if system.attributes.speed.climb.total}}{{system.attributes.speed.climb.total}}{{else}}—{{/if}}</span></label>
+                <label>{{ localize 'D35E.SpeedSwim' }}<span>{{#if system.attributes.speed.swim.total}}{{system.attributes.speed.swim.total}}{{else}}—{{/if}}</span></label>
+                <label>{{ localize 'D35E.SpeedBurrow' }}<span>{{#if system.attributes.speed.burrow.total}}{{system.attributes.speed.burrow.total}}{{else}}—{{/if}}</span></label>
+                <label>{{ localize 'D35E.SpeedFly' }}<span>{{#if system.attributes.speed.fly.total}}{{system.attributes.speed.fly.total}}{{else}}—{{/if}}</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="pf1-section-caption"><i class="fas fa-shield-halved"></i> {{ localize 'D35E.Defenses' }}</div>
+          <div class="pf1-defense-grid">
+            <div><span>{{ localize 'D35E.ACNormal' }}</span><strong>{{system.attributes.ac.normal.total}}</strong></div>
+            <div><span>{{ localize 'D35E.ACTouch' }}</span><strong>{{system.attributes.ac.touch.total}}</strong></div>
+            <div><span>{{ localize 'D35E.ACFlatFooted' }}</span><strong>{{system.attributes.ac.flatFooted.total}}</strong></div>
+            <div><span>{{ localize 'D35EPF1.CMD' }}</span><strong>{{system.attributes.cmd.total}}</strong></div>
+            <div><span>{{ localize 'D35E.CMDFlatFooted' }}</span><strong>{{system.attributes.cmd.flatFootedTotal}}</strong></div>
+            {{#each system.attributes.savingThrows as |save id|}}
+            <div class="saving-throw" data-savingthrow="{{id}}"><a class="attribute-name rollable">{{save.label}}</a><strong>{{numberFormat save.total decimals=0 sign=true}}</strong></div>
+            {{/each}}
+            <div><span>{{ localize 'D35E.SpellResistance' }}</span><strong>{{system.attributes.sr.total}}</strong></div>
+          </div>
+
+          <div class="pf1-combat-strip">
+            <div data-attribute="bab"><span>{{ localize 'D35E.BABAbbr' }}</span><strong>{{numberFormat system.attributes.bab.total decimals=0 sign=true}}</strong></div>
+            <div data-attribute="cmb"><span>{{ localize 'D35E.CMBAbbr' }}</span><strong>{{numberFormat system.attributes.cmb.total decimals=0 sign=true}}</strong></div>
+            <div class="attribute initiative" data-attribute="init"><a class="attribute-name rollable">{{ localize 'D35E.Initiative' }}</a><strong>{{numberFormat system.attributes.init.total decimals=0 sign=true}}</strong></div>
+          </div>
+
+          <section class="pf1-list-panel pf1-classes-panel">
+            <div class="pf1-list-heading">
+              <strong>{{ localize 'D35E.ClassPlural' }}</strong>
+              {{#if owner}}<a class="item-create" data-type="class" title="{{ localize 'D35E.CreateItem' }}"><i class="fas fa-plus"></i></a>{{/if}}
+            </div>
+            <div class="pf1-class-list">
+              {{#each items as |item|}}{{#if (eq item.type "class")}}
+              <div class="item pf1-class-row" data-item-id="{{item.id}}">
+                <span class="pf1-class-name">{{item.name}}</span>
+                <span>{{item.system.levels}}</span>
+                <span class="item-controls"><a class="item-edit"><i class="fas fa-edit"></i></a></span>
+              </div>
+              {{/if}}{{/each}}
+              {{#unless hasClasses}}<div class="pf1-empty-hint">{{ localize 'D35E.WarningMissingClass' }}</div>{{/unless}}
+            </div>
+          </section>
+
+          <section class="pf1-list-panel pf1-actions-panel">
+            <div class="pf1-list-heading"><strong>{{ localize 'D35E.Actions' }}</strong></div>
+            <div class="pf1-quick-actions">
+              {{#each useableAttacks as |item|}}
+              <div class="item pf1-action-row" data-item-id="{{item.id}}">
+                <div class="item-name"><div class="item-image" style="background-image:url('{{item.img}}')"></div><span>{{item.name}}</span></div>
+                {{#if item.hasAction}}<a class="item-control item-attack" title="{{ localize 'D35E.Use' }}"><i class="fas fa-dice-d20"></i></a>{{/if}}
+              </div>
+              {{/each}}
+            </div>
+          </section>
+        </div>
+
+        <aside class="pf1-quick-skills">
+          <div class="pf1-quick-heading">{{ localize 'D35E.Skills' }}</div>
+          <div class="skill pf1-quick-skill" data-skill="dip"><a class="skill-roll rollable">Diplomacy</a><strong>{{numberFormat system.skills.dip.total decimals=0 sign=true}}</strong></div>
+          <div class="skill pf1-quick-skill" data-skill="hea"><a class="skill-roll rollable">Heal</a><strong>{{numberFormat system.skills.hea.total decimals=0 sign=true}}</strong></div>
+          <div class="skill pf1-quick-skill" data-skill="lis"><a class="skill-roll rollable">Listen</a><strong>{{numberFormat system.skills.lis.total decimals=0 sign=true}}</strong></div>
+          <div class="skill pf1-quick-skill" data-skill="spt"><a class="skill-roll rollable">Spot</a><strong>{{numberFormat system.skills.spt.total decimals=0 sign=true}}</strong></div>
+        </aside>
+      </section>
+    </div>
+
+    <div class="tab attributes pf1-panel-tab" data-group="primary" data-tab="attributes">
+      {{> "systems/D35E/templates/actors/parts/actor-attributes.html"}}
+    </div>
+    <div class="tab attacks pf1-panel-tab" data-group="primary" data-tab="attacks">
+      {{> "systems/D35E/templates/actors/parts/actor-attacks.html" sections=attacks}}
+    </div>
+    <div class="tab inventory primary-group pf1-panel-tab" data-group="primary" data-tab="inventory">
+      {{> "systems/D35E/templates/actors/parts/actor-inventory.html" sections=inventory}}
+    </div>
+    <div class="tab feats pf1-panel-tab" data-group="primary" data-tab="feats">
+      {{> "systems/D35E/templates/actors/parts/actor-features.html" sections=features}}
+    </div>
+    <div class="tab skills pf1-panel-tab" data-group="primary" data-tab="skills">
+      {{> "systems/D35E/templates/actors/parts/actor-skills-front.html"}}
+    </div>
+    <div class="tab buffs pf1-panel-tab" data-group="primary" data-tab="buffs">
+      {{> "systems/D35E/templates/actors/parts/actor-buffs.html" sections=buffs}}
+    </div>
+    <div class="tab spellbook pf1-panel-tab" data-group="primary" data-tab="spellbook">
+      {{> "systems/D35E/templates/actors/parts/actor-spellbook-front.html"}}
+    </div>
+    <div class="tab biography pf1-editor-tab" data-group="primary" data-tab="biography">
+      {{editor rendered.biography target="system.details.biography.value" button=true owner=owner editable=editable engine="prosemirror"}}
+    </div>
+    <div class="tab actor-notes pf1-editor-tab" data-group="primary" data-tab="notes">
+      {{editor rendered.notes target="system.details.notes.value" button=true owner=owner editable=editable engine="prosemirror"}}
+    </div>
+    <div class="tab actor-notes pf1-panel-tab" data-group="primary" data-tab="config">
+      {{> "systems/D35E/templates/actors/parts/actor-config.html"}}
+    </div>
+  </section>
+</form>
